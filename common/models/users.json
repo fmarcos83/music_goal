@@ -1,0 +1,33 @@
+{
+  "name": "users",
+  "plural": "users",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "photo": {
+      "type": "string"
+    },
+    "location": {
+      "type": "geopoint",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasAndBelongsToMany",
+      "model": "users",
+      "foreignKey": ""
+    },
+    "goals": {
+      "type": "hasMany",
+      "model": "goal",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
