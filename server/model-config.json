@@ -36,15 +36,15 @@
   },
   "songs": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "practice": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "goal": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "accessToken": {
     "dataSource": "db",
