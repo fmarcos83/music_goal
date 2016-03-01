@@ -3,7 +3,7 @@
     "provider": "facebook",
     "module": "passport-facebook",
     "clientID": "1121682174518269",
-    "clientSecret": "d136b13e23d9ed171a0046cf22d43a75",
+    "clientSecret": "1121682174518269",
     "callbackURL": "/auth/facebook/callback",
     "authPath": "/auth/facebook",
     "callbackPath": "/auth/facebook/callback",
