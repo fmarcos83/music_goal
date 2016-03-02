@@ -80,17 +80,18 @@ for (var s in config) {
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
 app.get('/', function (req, res, next) {
-  res.render('pages/index', {user:
-    req.user,
-    url: req.url
-  });
+  res.redirect('/login');
 });
 
 app.get('/auth/account', ensureLoggedIn('/login'), function (req, res, next) {
-  res.render('pages/loginProfiles', {
-    user: req.user,
-    url: req.url
+  req.app.models.accessToken.findOne({fields:'id',where:{userId: req.user.id}},function(err, found){
+      req.user.accessToken = found.id
+      res.render('pages/loginProfiles', {
+        user: req.user,
+        url: req.url
+      });
   });
+
 });
 
 app.get('/local', function (req, res, next){
@@ -109,7 +110,7 @@ app.get('/login', function (req, res, next){
 
 app.get('/auth/logout', function (req, res, next) {
   req.logout();
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 app.start = function() {
